@@ -1,9 +1,0 @@
-{
-  "@context": "http://schema.org",
-  "@type": "WebSite",
-  "url": "http://gawai.io/",
-  "description": "Gawai.io adalah website informasi gadget Anda. Temukan berbagai macam gadget lifestyle di sini.",
-  "about": "Gadget News",
-  "keywords": "gadget, gawai, apple, samsung, xiaomi, redmi, oneplus, asus, oppo, vivo, sony, nokia, smartphone, laptop, smartwatch, rog, macbook, iphone, apple watch",
-  "thumbnailUrl": "http://gawai.io/images/share-thumbnail.png"
-}
