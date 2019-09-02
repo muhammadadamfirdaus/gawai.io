@@ -9,14 +9,14 @@ const PostByBrand = () => {
         <section className="card flex brand">
           <div className="wrapper head">
             <h1>
-              <a href="tags.html">
+              <Link to="/product/brand/apple">
                 Xiaomi
-              </a>
+              </Link>
             </h1>
             <h2 className="more">
-              <a href="tags.html">
+              <Link to="/product/brand/apple">
                 Lihat Semua
-              </a>
+              </Link>
             </h2>
           </div>
           <div className="wrapper">

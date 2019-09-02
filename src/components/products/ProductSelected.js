@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const ProductSelected = () => {
   return(
@@ -8,11 +9,11 @@ const ProductSelected = () => {
           <div className="wrapper">
             <li>
               <div className="wrapper">
-                <a href="gadget-detail.html" className="thumbnail">
+                <Link to="/product/detail/gadget-detail" className="thumbnail">
                   <img src="../../assets/images/iphone-xr.png" alt="iPhone XR"/>
-                </a>
+                </Link>
                 <h1>
-                  <a href="gadget-detail.html">iPhone XR</a>
+                  <Link to="/gadget/dadget-detail">iPhone XR</Link>
                 </h1>
               </div>
             </li>

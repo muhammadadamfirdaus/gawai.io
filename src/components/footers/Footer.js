@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   return(
@@ -65,24 +66,9 @@ const Footer = () => {
               <nav className="recent">
                 <h2 className="subheading">Paling Banyak Dibaca</h2>
                 <li>
-                  <a href="detail-article.html">
+                  <Link to="/post/article-detail">
                     Smartphone Gaming Murah Di Bawah 5 Juta
-                  </a>
-                </li>
-                <li>
-                  <a href="detail-article.html">
-                    Toshiba Luncurkan Alternatif Laptop Gaming
-                  </a>
-                </li>
-                <li>
-                  <a href="detail-article.html">
-                    Bocoran Design iPhone XI
-                  </a>
-                </li>
-                <li>
-                  <a href="detail-article.html">
-                    Full Review PS5, Spesifikasi dan Harga
-                  </a>
+                  </Link>
                 </li>
               </nav>
             </div>
