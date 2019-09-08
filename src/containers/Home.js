@@ -9,7 +9,6 @@ import MostPopular from '../components/posts/MostPopular';
 import PostByBrand from '../components/posts/PostByBrand';
 import ProductSelected from '../components/products/ProductSelected';
 
-import {getPopularPosts} from '../actions/post-action';
 import {getSelectedProducts} from '../actions/product-action';
 
 class Home extends Component{
@@ -36,7 +35,9 @@ class Home extends Component{
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
-                <Tag/>
+                <Tag
+                  data={this.props.popularTags}
+                />
               </aside>
               <div className="left">
                 <PostByBrand/>
@@ -52,12 +53,12 @@ class Home extends Component{
 function mapStateToProps(state){
   return {
     popularPosts: state.post.popularPosts,
+    popularTags: state.post.popularTags,
     selectedProducts: state.product.selectedProducts
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getPopularPosts: dispatch(getPopularPosts()),
     getSelectedProducts: dispatch(getSelectedProducts())
   }, dispatch)
 };

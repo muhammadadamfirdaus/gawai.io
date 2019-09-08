@@ -57,3 +57,22 @@ export const getPostCompleted = (data) => {
     payload: data,
   }
 };
+
+export const getPopularTags = () => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/getPopularTags`)
+      .then(response => {
+        dispatch(getPopularTagsCompleted(response.data.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
+export const getPopularTagsCompleted = (data) => {
+  return {
+    type: "GET_POPULAR_TAGS_COMPLETED",
+    payload: data,
+  }
+};

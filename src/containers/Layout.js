@@ -7,6 +7,8 @@ import Footer from '../components/footers/Footer';
 import Header from '../components/headers/Header';
 import ProductSelected from '../components/products/ProductSelected';
 
+import {getPopularTags, getPopularPosts} from '../actions/post-action';
+
 class Layout extends Component {
   state = {
   }
@@ -18,7 +20,10 @@ class Layout extends Component {
           <div className="wrapper">
             <Header/>
               {this.props.children}
-            <Footer/>
+            <Footer
+              tags={this.props.popularTags}
+              posts={this.props.popularPosts}
+            />
           </div>
         </div>
       </React.Fragment>
@@ -28,12 +33,14 @@ class Layout extends Component {
 
 function mapStateToProps(state){
   return {
-
+    popularTags: state.post.popularTags,
+    popularPosts: state.post.popularPosts,
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-
+    getPopularTags: dispatch(getPopularTags()),
+    getPopularPosts: dispatch(getPopularPosts())
   }, dispatch)
 };
 

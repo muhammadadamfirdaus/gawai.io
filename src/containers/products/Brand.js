@@ -20,7 +20,7 @@ class Brand extends Component{
               <aside class="right">
                 <PostRelated/>
                 <section class="card tags">
-                  <Tag/>
+                  {/* <Tag/> */}
                 </section>
               </aside>
               <div class="left gadget-index">
@@ -28,7 +28,9 @@ class Brand extends Component{
               </div>
             </div>
           </section>
-          <ProductSelected/>
+          <ProductSelected
+            data={this.props.selectedProducts}
+          />
         </main>
       </React.Fragment>
     );
@@ -37,12 +39,12 @@ class Brand extends Component{
 
 function mapStateToProps(state){
   return {
-
+    selectedProducts: state.product.selectedProducts
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-
+    
   }, dispatch)
 };
 

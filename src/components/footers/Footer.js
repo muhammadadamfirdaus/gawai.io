@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Footer = () => {
+const Footer = (props) => {
   return(
     <React.Fragment>
       <footer>
@@ -34,42 +34,37 @@ const Footer = () => {
             <div className="wrapper">
               <nav className="tags">
                 <h2 className="subheading">Keyword Populer</h2>
-                <li>
-                  <h1>
-                    <a href="tags.html">
-                      Laptop
-                    </a>
-                  </h1>
-                </li>
-                <li>
-                  <h1>
-                    <a href="tags.html">
-                      Smartphone
-                    </a>
-                  </h1>
-                </li>
-                <li>
-                  <h1>
-                    <a href="tags.html">
-                      Smartwatch
-                    </a>
-                  </h1>
-                </li>
-                <li>
-                  <h1>
-                    <a href="tags.html">
-                      Gaming
-                    </a>
-                  </h1>
-                </li>
+                {
+                  props.tags.map((data, i) => {
+                    return(
+                      <React.Fragment>
+                        <li>
+                          <h1>
+                            <Link to={`/post/tag/${data.tag.slug}`}>
+                              {data.tag.name}
+                            </Link>
+                          </h1>
+                        </li>
+                      </React.Fragment>
+                    )
+                  })
+                }
               </nav>
               <nav className="recent">
                 <h2 className="subheading">Paling Banyak Dibaca</h2>
-                <li>
-                  <Link to="/post/article-detail">
-                    Smartphone Gaming Murah Di Bawah 5 Juta
-                  </Link>
-                </li>
+                {
+                  props.posts.map((data, i) => {
+                    return(
+                      <React.Fragment>
+                        <li>
+                          <Link to={`/post/detail/${data.post.slug}`}>
+                            {data.post.title}
+                          </Link>
+                        </li>
+                      </React.Fragment>
+                    )
+                  })
+                }
               </nav>
             </div>
           </li>

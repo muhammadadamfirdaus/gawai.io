@@ -6,10 +6,10 @@ import { withRouter } from 'react-router-dom';
 import MostPopular from '../../components/posts/MostPopular';
 import Header from '../../components/posts/Header';
 import Detail from '../../components/posts/Detail';
-import Tag from '../../components/Tag';
+import Tag from '../../components/posts/Tag';
 import ProductSelected from '../../components/products/ProductSelected';
 
-import {getPopularPosts, getPost} from '../../actions/post-action';
+import {getPost} from '../../actions/post-action';
 import {getSelectedProducts} from '../../actions/product-action';
 
 class Single extends Component{  
@@ -32,7 +32,9 @@ class Single extends Component{
                   <Detail
                     data={this.props.post}
                   />
-                  <Tag/>
+                  <Tag
+                    data={this.props.post}
+                  />
                 </div>
               </div>
             </div>
@@ -55,7 +57,6 @@ function mapStateToProps(state){
 };
 function mapDispatchToProps(dispatch, props){
   return bindActionCreators({
-    getPopularPosts: dispatch(getPopularPosts()),
     getPost: dispatch(getPost(props.match.params.slug)),
     getSelectedProducts: dispatch(getSelectedProducts())
   }, dispatch)
