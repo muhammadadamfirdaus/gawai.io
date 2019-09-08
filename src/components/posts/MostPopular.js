@@ -1,26 +1,34 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const MostPopular = () => {
+const MostPopular = (props) => {
   return(
     <React.Fragment>
       <div className="wrapper">
         <section className="card list popular">
           <h2 className="subheading">Paling Banyak Dibaca</h2>
           <div className="wrapper">
-            <li>
-              <div className="wrapper">
-                <span>1</span>
-                <Link className="thumbnail" to="/post/detail-article">
-                  <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
-                </Link>
-                <h1>
-                  <Link className="thumbnail" to="/post/detail-article">
-                    Redmi Note 7 Tembus 1 Juta Penjualan di Bulan Pertama
-                  </Link>
-                </h1>
-              </div>
-            </li>
+            {
+              props.data.map((data, i) =>{
+                return(
+                  <React.Fragment key={i}>
+                    <li>
+                      <div className="wrapper">
+                        <span>{i+1}</span>
+                        <Link className="thumbnail" to={`/post/detail/${data.post.slug}`}>
+                          <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
+                        </Link>
+                        <h1>
+                          <Link className="thumbnail" to={`/post/detail/${data.post.slug}`}>
+                            {data.post.title}
+                          </Link>
+                        </h1>
+                      </div>
+                    </li>
+                  </React.Fragment>
+                )
+              })
+            }
           </div>
         </section>
       </div>

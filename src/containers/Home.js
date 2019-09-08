@@ -9,8 +9,11 @@ import MostPopular from '../components/posts/MostPopular';
 import PostByBrand from '../components/posts/PostByBrand';
 import ProductSelected from '../components/products/ProductSelected';
 
+import {getPopularPosts} from '../actions/post-action';
+import {getSelectedProducts} from '../actions/product-action';
+
 class Home extends Component{
-  render() {
+  render(props) {
     return(
       <React.Fragment>
         <main className="home">
@@ -18,14 +21,18 @@ class Home extends Component{
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
-                <MostPopular/>
+                <MostPopular
+                  data={this.props.popularPosts}
+                />
               </aside>
               <div className="left">
                 <PostByBrand/>
               </div>
             </div>
           </section>
-          <ProductSelected/>
+          <ProductSelected
+            data={this.props.selectedProducts}
+          />
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
@@ -44,12 +51,14 @@ class Home extends Component{
 
 function mapStateToProps(state){
   return {
-
+    popularPosts: state.post.popularPosts,
+    selectedProducts: state.product.selectedProducts
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-
+    getPopularPosts: dispatch(getPopularPosts()),
+    getSelectedProducts: dispatch(getSelectedProducts())
   }, dispatch)
 };
 

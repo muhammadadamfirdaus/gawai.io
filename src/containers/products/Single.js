@@ -6,15 +6,21 @@ import { withRouter } from 'react-router-dom';
 import Detail from '../../components/products/Detail';
 import ProductSelected from '../../components/products/ProductSelected';
 
+import {getSelectedProducts, getProduct} from '../../actions/product-action';
+
 class Single extends Component{
   render() {
     return(
       <React.Fragment>
-        <main class="detail gadget">
-          <div class="wrapper">
-            <Detail/>
+        <main className="detail gadget">
+          <div className="wrapper">
+            <Detail
+              data={this.props.product}
+            />
           </div>
-          <ProductSelected/>
+          <ProductSelected
+            data={this.props.selectedProducts}
+          />
         </main>
       </React.Fragment>
     );
@@ -23,12 +29,14 @@ class Single extends Component{
 
 function mapStateToProps(state){
   return {
-
+    selectedProducts: state.product.selectedProducts,
+    product: state.product.product,
   };
 };
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch, props){
   return bindActionCreators({
-
+    getSelectedProducts: dispatch(getSelectedProducts()),
+    getProduct: dispatch(getProduct(props.match.params.slug))
   }, dispatch)
 };
 

@@ -9,26 +9,37 @@ import Detail from '../../components/posts/Detail';
 import Tag from '../../components/Tag';
 import ProductSelected from '../../components/products/ProductSelected';
 
-class Single extends Component{
+import {getPopularPosts, getPost} from '../../actions/post-action';
+import {getSelectedProducts} from '../../actions/product-action';
+
+class Single extends Component{  
   render() {
     return(
       <React.Fragment>
-        <main class="detail" itemscope itemtype="http://schema.org/Article">
-          <Header/>
+        <main className="detail" itemScope itemType="http://schema.org/Article">
+          <Header
+            data={this.props.post}
+          />
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
-                <MostPopular/>
+                <MostPopular
+                  data={this.props.popularPosts}
+                />
               </aside>
               <div className="left">
                 <div className="wrapper">
-                  <Detail/>
+                  <Detail
+                    data={this.props.post}
+                  />
                   <Tag/>
                 </div>
               </div>
             </div>
           </section>
-          <ProductSelected/>
+          <ProductSelected
+            data={this.props.selectedProducts}
+          />
         </main>
       </React.Fragment>
     );
@@ -37,12 +48,16 @@ class Single extends Component{
 
 function mapStateToProps(state){
   return {
-
+    popularPosts: state.post.popularPosts,
+    post: state.post.post,
+    selectedProducts: state.product.selectedProducts
   };
 };
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch, props){
   return bindActionCreators({
-
+    getPopularPosts: dispatch(getPopularPosts()),
+    getPost: dispatch(getPost(props.match.params.slug)),
+    getSelectedProducts: dispatch(getSelectedProducts())
   }, dispatch)
 };
 
