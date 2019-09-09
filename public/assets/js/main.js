@@ -1,1 +1,143 @@
-var getParents=function(e,t){Element.prototype.matches||(Element.prototype.matches=Element.prototype.matchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector||Element.prototype.oMatchesSelector||Element.prototype.webkitMatchesSelector||function(e){for(var t=(this.document||this.ownerDocument).querySelectorAll(e),o=t.length;--o>=0&&t.item(o)!==this;);return o>-1});for(var o=[];e&&e!==document;e=e.parentNode)t?e.matches(t)&&o.push(e):o.push(e);return o},getClosest=function(e,t){for(Element.prototype.matches||(Element.prototype.matches=Element.prototype.matchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector||Element.prototype.oMatchesSelector||Element.prototype.webkitMatchesSelector||function(e){for(var t=(this.document||this.ownerDocument).querySelectorAll(e),o=t.length;--o>=0&&t.item(o)!==this;);return o>-1});e&&e!==document;e=e.parentNode)if(e.matches(t))return e;return null},showMultiple=document.querySelectorAll(".show-multiple");for(let e=0;e<showMultiple.length;e++)showMultiple[e].addEventListener("click",function(){this.classList.toggle("active");var e=this.closest(".wrapper").nextElementSibling;e.classList.contains("active")?e.classList.remove("active"):e.classList.add("active")});var showOne=document.getElementsByClassName("show-one"),showOneButton=document.getElementsByClassName("toggle");for(i=0;i<showOneButton.length;i++)showOneButton[i].addEventListener("click",toggleItem,!1);function toggleItem(){var e=this.parentNode;for(i=0;i<showOne.length;i++)showOne[i].classList.remove("active");e.classList.contains("show-one")&&e.classList.add("active")}var option=document.querySelector(".option");window.addEventListener("click",e=>{for(e.stopImmediatePropagation(),i=0;i<showOne.length;i++)!e.target.closest(".option")&&e.target.closest(".toggle")?console.log("di dalam"):(showOne[i].classList.remove("active"),console.log("di luar"))});var swiper=document.querySelector(".swiper-container");if(swiper)var slideThumbnailHeadline=new Swiper(".small",{slidesPerView:4,watchSlidesVisibility:!0,watchSlidesProgress:!0,centerInsufficientSlides:!0,slideToClickedSlide:!0,breakpoints:{768:{slidesPerView:"auto"}}}),slideHeadline=new Swiper(".big",{spaceBetween:10,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},thumbs:{swiper:slideThumbnailHeadline},breakpoints:{768:{spaceBetween:0}}});
+var getParents = function (elem, selector) {
+	// Element.matches() polyfill
+	if (!Element.prototype.matches) {
+		Element.prototype.matches =
+			Element.prototype.matchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector ||
+			Element.prototype.oMatchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			function(s) {
+				var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+					i = matches.length;
+				while (--i >= 0 && matches.item(i) !== this) {}
+				return i > -1;
+			};
+	}
+
+	// Set up a parent array
+	var parents = [];
+
+	// Push each parent element to the array
+	for ( ; elem && elem !== document; elem = elem.parentNode ) {
+		if (selector) {
+			if (elem.matches(selector)) {
+				parents.push(elem);
+			}
+			continue;
+		}
+		parents.push(elem);
+	}
+
+	// Return our parent array
+	return parents;
+
+};
+
+var getClosest = function (elem, selector) {
+
+	// Element.matches() polyfill
+	if (!Element.prototype.matches) {
+	    Element.prototype.matches =
+	        Element.prototype.matchesSelector ||
+	        Element.prototype.mozMatchesSelector ||
+	        Element.prototype.msMatchesSelector ||
+	        Element.prototype.oMatchesSelector ||
+	        Element.prototype.webkitMatchesSelector ||
+	        function(s) {
+	            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+	                i = matches.length;
+	            while (--i >= 0 && matches.item(i) !== this) {}
+	            return i > -1;
+	        };
+	}
+
+	// Get the closest matching element
+	for ( ; elem && elem !== document; elem = elem.parentNode ) {
+		if ( elem.matches( selector ) ) return elem;
+	}
+	return null;
+
+};
+var showMultiple = document.querySelectorAll('.show-multiple');
+
+for(let i = 0; i < showMultiple.length; i++){
+  showMultiple[i].addEventListener('click', function(){
+    this.classList.toggle("active");
+    var panel = this.closest('.wrapper').nextElementSibling;
+    if(panel.classList.contains('active')){
+      panel.classList.remove('active');
+    } else {
+      panel.classList.add('active');
+    }
+  });
+};
+
+var showOne = document.getElementsByClassName('show-one');
+var showOneButton = document.getElementsByClassName('toggle');
+for (i = 0; i < showOneButton.length; i++) {
+  showOneButton[i].addEventListener('click', toggleItem, false);
+}
+
+function toggleItem(){
+  var buttonParent = this.parentNode;
+  for (i = 0; i < showOne.length; i++) {
+    showOne[i].classList.remove('active');
+  }
+  if (buttonParent.classList.contains('show-one')) {
+    buttonParent.classList.add('active');
+  }
+}
+
+var option = document.querySelector('.option');
+window.addEventListener('click', (e) => {
+  e.stopImmediatePropagation();
+  for (i = 0; i < showOne.length; i++) {
+    // check if user click outside area
+    if(!e.target.closest('.option') && e.target.closest('.toggle')){
+      console.log('di dalam');
+    } else {
+      showOne[i].classList.remove('active');
+      console.log('di luar');
+    }
+  }
+});
+var swiper = document.querySelector('.swiper-container');
+
+if(swiper){
+  var slideThumbnailHeadline = new Swiper('.small', {
+    // spaceBetween: 10,
+    slidesPerView: 4,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    // centerInsufficientSlides: true,
+    // slideToClickedSlide: true,
+    breakpoints: {
+      1024: {
+        slidesPerView: 3
+      },
+      768: {
+        slidesPerView: 'auto'
+      }
+    }
+  });
+  var slideHeadline = new Swiper('.big', {
+      spaceBetween: 10,
+      autoplay: {
+        delay: 5000
+      },
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: slideThumbnailHeadline
+      },
+      breakpoints: {
+        768: {
+          spaceBetween: 0
+        }
+      }
+  });
+}
