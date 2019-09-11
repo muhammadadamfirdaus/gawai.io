@@ -11,6 +11,7 @@ import ProductSelected from '../components/products/ProductSelected';
 
 import {getSelectedProducts} from '../actions/product-action';
 import {getPostsHeadline} from '../actions/post-action';
+import {getBrands} from '../actions/brand-action';
 
 class Home extends Component{
   render(props) {
@@ -28,7 +29,9 @@ class Home extends Component{
                 />
               </aside>
               <div className="left">
-                <PostByBrand/>
+                <PostByBrand
+                  data={this.props.brands}
+                />
               </div>
             </div>
           </section>
@@ -58,13 +61,15 @@ function mapStateToProps(state){
     popularPosts: state.post.popularPosts,
     popularTags: state.post.popularTags,
     selectedProducts: state.product.selectedProducts,
-    postHeadlines: state.post.headlines
+    postHeadlines: state.post.headlines,
+    brands: state.brand.brands
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     getSelectedProducts: dispatch(getSelectedProducts()),
-    getPostsHeadline: dispatch(getPostsHeadline())
+    getPostsHeadline: dispatch(getPostsHeadline()),
+    getBrands: dispatch(getBrands())
   }, dispatch)
 };
 
