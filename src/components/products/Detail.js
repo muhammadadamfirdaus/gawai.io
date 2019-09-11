@@ -149,294 +149,294 @@ const Detail = (props) => {
                       <span id="brand">Brand</span>
                       <span id="result-brand">{data.brand.name}</span>
                     </li>
-                    <li>
-                      <span id="os">Sistem Operasi</span>
-                      <span id="result-os">
-                        {
-                          data.spesifications["sistem-operasi"] && data.spesifications["sistem-operasi"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["sistem-operasi"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
-                                {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                      {
+                        data.spesifications["sistem-operasi"] && data.spesifications["sistem-operasi"].map((data2, i2) => {
+                          let sparator;
+                          if (i2 !== (data.spesifications["sistem-operasi"].length - 1)) {
+                            sparator = ',';
+                          }
+                          return(
+                            <React.Fragment key={i2}>
+                              <li>
+                                <span id="os">Sistem Operasi</span>
+                                <span id="result-os">
+                                  {data2.value}{sparator} &nbsp;
+                                </span>
+                              </li>
+                            </React.Fragment>
+                          )
+                        })
+                      }
+                      {
+                        data.spesifications["ram"] && data.spesifications["ram"].map((data2, i2) => {
+                          let sparator;
+                          if (i2 !== (data.spesifications["ram"].length - 1)) {
+                            sparator = ',';
+                          }
+                          return(
+                            <React.Fragment key={i2}>
+                              <li>
+                                <span id="ram">RAM</span>
+                                <span id="result-ram">
+                                  {data2.value}{sparator} &nbsp;
+                                </span>
+                              </li>
+                            </React.Fragment>
+                          )
+                        })
+                      }
+                    {
+                      data.spesifications["internal-storage"] && data.spesifications["internal-storage"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["internal-storage"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="ram">RAM</span>
-                      <span id="result-ram">
-                        {
-                          data.spesifications["ram"] && data.spesifications["ram"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["ram"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="internal-storage">Internal Storage</span>
+                              <span id="result-internal-storage">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["microsd"] && data.spesifications["microsd"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["microsd"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="internal-storage">Internal Storage</span>
-                      <span id="result-internal-storage">
-                        {
-                          data.spesifications["internal-storage"] && data.spesifications["internal-storage"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["internal-storage"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="micro-sd">MicroSD</span>
+                              <span id="result-micro-sd">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["baterai"] && data.spesifications["baterai"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["baterai"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="micro-sd">MicroSD</span>
-                      <span id="result-micro-sd">
-                        {
-                          data.spesifications["microsd"] && data.spesifications["microsd"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["microsd"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="battery">Baterai</span>
+                              <span id="result-battery">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["fast-charging"] && data.spesifications["fast-charging"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["fast-charging"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="battery">Baterai</span>
-                      <span id="result-battery">
-                        {
-                          data.spesifications["baterai"] && data.spesifications["baterai"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["baterai"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="fast-charging">Fast Charging</span>
+                              <span id="result-fast-charging">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["kamera-belakang"] && data.spesifications["kamera-belakang"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["kamera-belakang"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="fast-charging">Fast Charging</span>
-                      <span id="result-fast-charging">
-                        {
-                          data.spesifications["fast-charging"] && data.spesifications["fast-charging"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["fast-charging"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="camera-main">Kamera Belakang</span>
+                              <span id="result-camera-main">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["kamera-depan"] && data.spesifications["kamera-depan"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["kamera-depan"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="camera-main">Kamera Belakang</span>
-                      <span id="result-camera-main">
-                        {
-                          data.spesifications["kamera-belakang"] && data.spesifications["kamera-belakang"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["kamera-belakang"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="camera-front">Kamera Depan</span>
+                              <span id="result-camera-front">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["fitur-kamera"] && data.spesifications["fitur-kamera"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["fitur-kamera"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="camera-front">Kamera Depan</span>
-                      <span id="result-camera-front">
-                        {
-                          data.spesifications["kamera-depan"] && data.spesifications["kamera-depan"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["kamera-depan"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="camera-feature">Fitur Kamera</span>
+                              <span id="result-camera-feature">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["video"] && data.spesifications["video"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["video"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="camera-feature">Fitur Kamera</span>
-                      <span id="result-camera-feature">
-                        {
-                          data.spesifications["fitur-kamera"] && data.spesifications["fitur-kamera"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["fitur-kamera"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="video">Video</span>
+                              <span id="result-video">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["chipset"] && data.spesifications["chipset"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["chipset"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="video">Video</span>
-                      <span id="result-video">
-                        {
-                          data.spesifications["video"] && data.spesifications["video"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["video"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="soc">Chipset</span>
+                              <span id="result-soc">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["cpu"] && data.spesifications["cpu"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["cpu"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="soc">Chipset</span>
-                      <span id="result-soc">
-                        {
-                          data.spesifications["chipset"] && data.spesifications["chipset"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["chipset"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="cpu-core">CPU</span>
+                              <span id="result-cpu-core">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["gpu"] && data.spesifications["gpu"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["gpu"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="cpu-core">CPU</span>
-                      <span id="result-cpu-core">
-                        {
-                          data.spesifications["cpu"] && data.spesifications["cpu"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["cpu"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="gpu">GPU</span>
+                              <span id="result-gpu">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["ukuran-body"] && data.spesifications["ukuran-body"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["ukuran-body"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="gpu">GPU</span>
-                      <span id="result-gpu">
-                        {
-                          data.spesifications["gpu"] && data.spesifications["gpu"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["gpu"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="size-body">Ukuran Body</span>
+                              <span id="result-size-body">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["resolusi-layar"] && data.spesifications["resolusi-layar"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["resolusi-layar"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="size-body">Ukuran Body</span>
-                      <span id="result-size-body">
-                        {
-                          data.spesifications["ukuran-body"] && data.spesifications["ukuran-body"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["ukuran-body"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="display-resolution">Resolusi Layar</span>
+                              <span id="result-display-resolution">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                    {
+                      data.spesifications["rasio-layar"] && data.spesifications["rasio-layar"].map((data2, i2) => {
+                        let sparator;
+                        if (i2 !== (data.spesifications["rasio-layar"].length - 1)) {
+                          sparator = ',';
                         }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="display-resolution">Resolusi Layar</span>
-                      <span id="result-display-resolution">
-                        {
-                          data.spesifications["resolusi-layar"] && data.spesifications["resolusi-layar"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["resolusi-layar"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <span id="display-ratio">Rasio Layar</span>
+                              <span id="result-display-ratio">
                                 {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
-                        }
-                      </span>
-                    </li>
-                    <li>
-                      <span id="display-ratio">Rasio Layar</span>
-                      <span id="result-display-ratio">
-                        {
-                          data.spesifications["rasio-layar"] && data.spesifications["rasio-layar"].map((data2, i2) => {
-                            let sparator;
-                            if (i2 !== (data.spesifications["rasio-layar"].length - 1)) {
-                              sparator = ',';
-                            }
-                            return(
-                              <React.Fragment key={i2}>
-                                {data2.value}{sparator} &nbsp;
-                              </React.Fragment>
-                            )
-                          })
-                        }
-                      </span>
-                    </li>
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
                   </div>
                 </div>
               </div>
