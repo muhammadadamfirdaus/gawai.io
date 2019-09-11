@@ -6,9 +6,9 @@ const Header = () => {
     <React.Fragment>
       <header>
         <div className="wrapper">
-          <a href="/" className="logo">
+          <Link to="/" className="logo">
             <img src="../../assets/images/gawai-logo-white.png" alt="Official GAWAI.IO logo"/>
-          </a>
+          </Link>
           <input type="checkbox" id="amp" className="amp-menu"/>
           <div className="menu-mobile"><span></span></div>
           <nav className="menu">

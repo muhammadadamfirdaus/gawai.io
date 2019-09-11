@@ -10,13 +10,16 @@ import PostByBrand from '../components/posts/PostByBrand';
 import ProductSelected from '../components/products/ProductSelected';
 
 import {getSelectedProducts} from '../actions/product-action';
+import {getPostsHeadline} from '../actions/post-action';
 
 class Home extends Component{
   render(props) {
     return(
       <React.Fragment>
         <main className="home">
-          <Headline/>
+          <Headline
+            data={this.props.postHeadlines}
+          />
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
@@ -54,12 +57,14 @@ function mapStateToProps(state){
   return {
     popularPosts: state.post.popularPosts,
     popularTags: state.post.popularTags,
-    selectedProducts: state.product.selectedProducts
+    selectedProducts: state.product.selectedProducts,
+    postHeadlines: state.post.headlines
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getSelectedProducts: dispatch(getSelectedProducts())
+    getSelectedProducts: dispatch(getSelectedProducts()),
+    getPostsHeadline: dispatch(getPostsHeadline())
   }, dispatch)
 };
 

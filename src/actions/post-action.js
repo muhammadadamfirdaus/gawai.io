@@ -76,3 +76,22 @@ export const getPopularTagsCompleted = (data) => {
     payload: data,
   }
 };
+
+export const getPostsHeadline = () => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/getHeadlines`)
+      .then(response => {
+        dispatch(getPostsHeadlineCompleted(response.data.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
+export const getPostsHeadlineCompleted = (data) => {
+  return {
+    type: "GET_POSTS_HEADLINE_COMPLETED",
+    payload: data,
+  }
+};
