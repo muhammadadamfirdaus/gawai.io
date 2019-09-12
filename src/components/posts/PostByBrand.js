@@ -25,17 +25,17 @@ const PostByBrand = (props) => {
                   </div>
                   <div className="wrapper">
                     {
-                      data.products.map((data2, i2) => {
+                      data.newPosts.map((data2, i2) => {
                         return(
                           <React.Fragment key={i2}>
                             <li>
                               <div className="wrapper">
-                                <Link className="thumbnail" to="/post/detail-article">
-                                  <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
+                                <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
+                                  <img src="../../assets/images/redmi-note-7.jpg" alt={data2.title}/>
                                 </Link>
                                 <h1>
-                                  <Link className="thumbnail" to="/post/detail-article">
-                                    {data2.name}
+                                  <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
+                                    {data2.title}
                                   </Link>
                                 </h1>
                               </div>

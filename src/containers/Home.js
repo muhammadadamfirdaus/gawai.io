@@ -46,7 +46,9 @@ class Home extends Component{
                 />
               </aside>
               <div className="left">
-                <PostByBrand/>
+                <PostByBrand
+                  data={this.props.brands}
+                />
               </div>
             </div>
           </section>
