@@ -18,7 +18,7 @@ const Tag = (props) => {
                           <React.Fragment key={i2}>
                             <li>
                               <h1>
-                                <Link to={`post/tag/${data2.slug}`} className="thumbnail">
+                                <Link to={`/post/tag/${data2.slug}`} className="thumbnail">
                                   {data2.name}
                                 </Link>
                               </h1>

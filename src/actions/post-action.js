@@ -13,6 +13,18 @@ export const getPosts = () => {
   };
 };
 
+export const getPostsByTag = (tag) => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/getPostsByTag/${tag}`)
+      .then(response => {
+        dispatch(getPostsCompleted(response.data.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
 export const getPostsCompleted = (data) => {
   return {
     type: "GET_POSTS_COMPLETED",

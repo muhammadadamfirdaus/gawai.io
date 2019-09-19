@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Detail = (props) => {
+const Detail = (props) => {  
   return(
     <React.Fragment>
       {

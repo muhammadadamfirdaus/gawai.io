@@ -38,3 +38,22 @@ export const getProductCompleted = (data) => {
     payload: data,
   }
 };
+
+export const getProductsByBrand = (slug) => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/getProductsByBrand/${slug}`)
+      .then(response => {
+        dispatch(getProductsCompleted(response.data.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
+export const getProductsCompleted = (data) => {
+  return {
+    type: "GET_PRODUCTS_COMPLETED",
+    payload: data,
+  }
+};

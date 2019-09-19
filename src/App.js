@@ -6,6 +6,7 @@ import Home from './containers/Home';
 import PostSingle from './containers/posts/Single';
 import ProductSingle from './containers/products/Single';
 import ProductBrand from './containers/products/Brand';
+import PostTag from './containers/posts/Tag';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Layout>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/post/detail/:slug" component={PostSingle} />
+                <Route exact path="/post/tag/:slug" component={PostTag} />
                 <Route exact path="/product/detail/:slug" component={ProductSingle} />
                 <Route exact path="/product/brand/:slug" component={ProductBrand} />
               </Layout>

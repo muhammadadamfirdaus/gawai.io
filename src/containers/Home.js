@@ -15,9 +15,23 @@ import {getBrands} from '../actions/brand-action';
 
 class Home extends Component{
   render(props) {
+    let brands = this.props.brands;
+    let brands1 = [];
+    let brands2 = [];
+    brands.map((data, i) => {
+      if (i < 3) {
+        brands1.push(data);
+      }else{
+        brands2.push(data);
+      }
+    })
+    var elmnt = document.getElementById("home");
+    if (elmnt !== null) {
+      elmnt.scrollIntoView({behavior: "smooth"});
+    }
     return(
       <React.Fragment>
-        <main className="home">
+        <main className="home" id="home">
           <Headline
             data={this.props.postHeadlines}
           />
@@ -30,7 +44,7 @@ class Home extends Component{
               </aside>
               <div className="left">
                 <PostByBrand
-                  data={this.props.brands}
+                  data={brands1}
                 />
               </div>
             </div>
@@ -47,7 +61,7 @@ class Home extends Component{
               </aside>
               <div className="left">
                 <PostByBrand
-                  data={this.props.brands}
+                  data={brands2}
                 />
               </div>
             </div>

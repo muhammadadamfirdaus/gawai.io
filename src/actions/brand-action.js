@@ -2,9 +2,9 @@ import axios from 'axios';
 
 import {apiUrlBrand as apiUrl} from './config';
 
-export const getBrand = () => {
+export const getBrand = (slug) => {
   return (dispatch) => {
-    return axios.get(`${apiUrl}`)
+    return axios.get(`${apiUrl}/getBrand/${slug}`)
       .then(response => {
         dispatch(getBrandCompleted(response.data.data))
       })
