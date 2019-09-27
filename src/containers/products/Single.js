@@ -10,9 +10,13 @@ import {getSelectedProducts, getProduct} from '../../actions/product-action';
 
 class Single extends Component{
   render() {
+    var elmnt = document.getElementById("product-single");
+    if (elmnt !== null) {
+      elmnt.scrollIntoView({behavior: "smooth"});
+    }
     return(
       <React.Fragment>
-        <main className="detail gadget">
+        <main className="detail gadget" id="product-single">
           <div className="wrapper">
             <Detail
               data={this.props.product}

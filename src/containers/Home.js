@@ -10,13 +10,31 @@ import PostByBrand from '../components/posts/PostByBrand';
 import ProductSelected from '../components/products/ProductSelected';
 
 import {getSelectedProducts} from '../actions/product-action';
+import {getPostsHeadline} from '../actions/post-action';
+import {getBrands} from '../actions/brand-action';
 
 class Home extends Component{
   render(props) {
+    let brands = this.props.brands;
+    let brands1 = [];
+    let brands2 = [];
+    brands.map((data, i) => {
+      if (i < 3) {
+        brands1.push(data);
+      }else{
+        brands2.push(data);
+      }
+    })
+    var elmnt = document.getElementById("home");
+    if (elmnt !== null) {
+      elmnt.scrollIntoView({behavior: "smooth"});
+    }
     return(
       <React.Fragment>
-        <main className="home">
-          <Headline/>
+        <main className="home" id="home">
+          <Headline
+            data={this.props.postHeadlines}
+          />
           <section className="col-2">
             <div className="wrapper">
               <aside className="right">
@@ -25,7 +43,9 @@ class Home extends Component{
                 />
               </aside>
               <div className="left">
-                <PostByBrand/>
+                <PostByBrand
+                  data={brands1}
+                />
               </div>
             </div>
           </section>
@@ -40,7 +60,9 @@ class Home extends Component{
                 />
               </aside>
               <div className="left">
-                <PostByBrand/>
+                <PostByBrand
+                  data={brands2}
+                />
               </div>
             </div>
           </section>
@@ -54,12 +76,16 @@ function mapStateToProps(state){
   return {
     popularPosts: state.post.popularPosts,
     popularTags: state.post.popularTags,
-    selectedProducts: state.product.selectedProducts
+    selectedProducts: state.product.selectedProducts,
+    postHeadlines: state.post.headlines,
+    brands: state.brand.brands
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getSelectedProducts: dispatch(getSelectedProducts())
+    getSelectedProducts: dispatch(getSelectedProducts()),
+    getPostsHeadline: dispatch(getPostsHeadline()),
+    getBrands: dispatch(getBrands())
   }, dispatch)
 };
 

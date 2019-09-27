@@ -14,9 +14,13 @@ import {getSelectedProducts} from '../../actions/product-action';
 
 class Single extends Component{  
   render() {
+    var elmnt = document.getElementById("post-single");
+    if (elmnt !== null) {
+      elmnt.scrollIntoView({behavior: "smooth"});
+    }
     return(
       <React.Fragment>
-        <main className="detail" itemScope itemType="http://schema.org/Article">
+        <main className="detail" itemScope itemType="http://schema.org/Article" id="post-single">
           <Header
             data={this.props.post}
           />

@@ -8,9 +8,9 @@ const Footer = (props) => {
         <div className="wrapper">
           <li>
             <div className="wrapper">
-              <a href="#" className="logo">
+              <Link to="/" className="logo">
                 <img src="../../assets/images/gawai-logo-white.png" alt="Official GAWAI.IO logo"/>
-              </a>
+              </Link>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vero ex aperiam molestiae nam voluptate esse non, distinctio quis maiores expedita rerum fugiat ducimus, natus impedit! Corporis vel nihil dolorem explicabo eius, nam consectetur culpa amet ipsum ratione dolor eum molestiae natus assumenda incidunt in esse, consequuntur iste est. Quasi aspernatur eligendi reiciendis placeat tempore neque nesciunt, rerum consequatur. Ipsam?
               </p>

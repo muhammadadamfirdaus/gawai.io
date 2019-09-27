@@ -1,51 +1,55 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const PostByBrand = () => {
+const PostByBrand = (props) => {
   return(
     <React.Fragment>
       <div className="wrapper">
         <h2 className="subheading">Brand</h2>
-        <section className="card flex brand">
-          <div className="wrapper head">
-            <h1>
-              <Link to="/product/brand/apple">
-                Xiaomi
-              </Link>
-            </h1>
-            <h2 className="more">
-              <Link to="/product/brand/apple">
-                Lihat Semua
-              </Link>
-            </h2>
-          </div>
-          <div className="wrapper">
-            <li>
-              <div className="wrapper">
-                <Link className="thumbnail" to="/post/detail-article">
-                  <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
-                </Link>
-                <h1>
-                  <Link className="thumbnail" to="/post/detail-article">
-                    Redmi Note 7 Tembus 1 Juta Penjualan di Bulan Pertama
-                  </Link>
-                </h1>
-              </div>
-            </li>
-            <li>
-              <div className="wrapper">
-                <Link className="thumbnail" to="/post/detail-article">
-                  <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
-                </Link>
-                <h1>
-                  <Link className="thumbnail" to="/post/detail-article">
-                    Redmi Note 7 Tembus 1 Juta Penjualan di Bulan Pertama
-                  </Link>
-                </h1>
-              </div>
-            </li>
-          </div>
-        </section>
+        {
+          props.data && props.data.map((data, i) => {
+            return(
+              <React.Fragment key={i}>
+                <section className="card flex brand">
+                  <div className="wrapper head">
+                    <h1>
+                      <Link to={`/product/brand/${data.brand.slug}`}>
+                        {data.brand.name}
+                      </Link>
+                    </h1>
+                    <h2 className="more">
+                      <Link to={`/product/brand/${data.brand.slug}`}>
+                        Lihat Semua
+                      </Link>
+                    </h2>
+                  </div>
+                  <div className="wrapper">
+                    {
+                      data.newPosts.map((data2, i2) => {
+                        return(
+                          <React.Fragment key={i2}>
+                            <li>
+                              <div className="wrapper">
+                                <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
+                                  <img src="../../assets/images/redmi-note-7.jpg" alt={data2.title}/>
+                                </Link>
+                                <h1>
+                                  <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
+                                    {data2.title}
+                                  </Link>
+                                </h1>
+                              </div>
+                            </li>
+                          </React.Fragment>
+                        )
+                      })
+                    }
+                  </div>
+                </section>
+              </React.Fragment>
+            )
+          })
+        }
       </div>
     </React.Fragment>
   );

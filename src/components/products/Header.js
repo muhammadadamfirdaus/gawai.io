@@ -1,24 +1,30 @@
 import React from 'react';
 
-const Header = () => {
+const Header = (props) => {
   return(
     <React.Fragment>
-      <div class="headline">
-        <div class="wrapper">
-          <figure>
-            <a href="detail-article.html" class="thumbnail">
-              <img src="../../assets/images/logo-apple.png" alt="Apple Logo"/>
-            </a>
-            <hgroup>
+      {
+        props.data.map((data, i) => {
+          return(
+            <div class="headline">
               <div class="wrapper">
-                <h1 class="title">
-                  Apple
-                </h1>
+                <figure>
+                  <a href="detail-article.html" class="thumbnail">
+                    <img src="../../assets/images/logo-apple.png" alt="Apple Logo"/>
+                  </a>
+                  <hgroup>
+                    <div class="wrapper">
+                      <h1 class="title">
+                        {data.brand.name}
+                      </h1>
+                    </div>
+                  </hgroup>
+                </figure>
               </div>
-            </hgroup>
-          </figure>
-        </div>
-      </div>
+            </div>
+          )
+        })
+      }
     </React.Fragment>
   );
 }

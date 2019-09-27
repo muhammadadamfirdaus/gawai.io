@@ -10,8 +10,6 @@ const Tag = (props) => {
           <div className="wrapper">
             {
               props.data.map((data, i) => {
-                console.log(data);
-                
                 return(
                   <React.Fragment key={i}>
                     <li>

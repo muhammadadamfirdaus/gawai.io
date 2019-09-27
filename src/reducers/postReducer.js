@@ -3,6 +3,7 @@ const initialState = {
   popularPosts: [],
   post: [],
   popularTags: [],
+  headlines: [],
 }
 
 export default function postReducer(state= initialState, action) {
@@ -15,6 +16,8 @@ export default function postReducer(state= initialState, action) {
       return {...state, post: action.payload};
     case "GET_POPULAR_TAGS_COMPLETED":
         return {...state, popularTags: action.payload};
+    case "GET_POSTS_HEADLINE_COMPLETED":
+      return {...state, headlines: action.payload};
     default:
       return state;
   }
