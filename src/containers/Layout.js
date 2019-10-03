@@ -8,6 +8,7 @@ import Header from '../components/headers/Header';
 import ProductSelected from '../components/products/ProductSelected';
 
 import {getPopularTags, getPopularPosts} from '../actions/post-action';
+import {getClassifications} from '../actions/classification-action';
 
 class Layout extends Component {
   state = {
@@ -18,7 +19,9 @@ class Layout extends Component {
       <React.Fragment>
         <div className="container">
           <div className="wrapper">
-            <Header/>
+            <Header
+              classifications={this.props.classifications}
+            />
               {this.props.children}
             <Footer
               tags={this.props.popularTags}
@@ -35,12 +38,14 @@ function mapStateToProps(state){
   return {
     popularTags: state.post.popularTags,
     popularPosts: state.post.popularPosts,
+    classifications: state.classification.classifications,
   };
 };
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     getPopularTags: dispatch(getPopularTags()),
-    getPopularPosts: dispatch(getPopularPosts())
+    getPopularPosts: dispatch(getPopularPosts()),
+    getClassifications: dispatch(getClassifications()),
   }, dispatch)
 };
 
