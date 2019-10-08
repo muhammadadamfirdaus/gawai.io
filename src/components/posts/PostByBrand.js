@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {globalUrl} from '../../actions/config';
 
 const PostByBrand = (props) => {
   return(
@@ -31,7 +32,7 @@ const PostByBrand = (props) => {
                             <li>
                               <div className="wrapper">
                                 <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
-                                  <img src="../../assets/images/redmi-note-7.jpg" alt={data2.title}/>
+                                  <img src={`${globalUrl}${data2.thumbnail}`} alt={data2.title}/>
                                 </Link>
                                 <h1>
                                   <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>

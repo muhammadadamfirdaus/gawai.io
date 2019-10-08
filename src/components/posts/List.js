@@ -1,5 +1,6 @@
 import  React from 'react';
 import {Link} from 'react-router-dom';
+import {globalUrl} from '../../actions/config';
 
 const List = (props) => {
   return(
@@ -11,7 +12,7 @@ const List = (props) => {
               <li>
                 <div class="wrapper">
                   <Link class="thumbnail" to={`/post/detail/${data.post.title}`}>
-                    <img src="../../assets/images/macbook-pro.png" alt="Macbook Pro"/>
+                    <img src={globalUrl+data.post.thumbnail} alt={data.post.title}/>
                   </Link>
                   <h1>
                     <Link to={`/post/detail/${data.post.slug}`}>{data.post.title}</Link>

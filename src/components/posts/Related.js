@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {globalUrl} from '../../actions/config';
 
 const Related = (props) => {
   return(
@@ -20,7 +21,7 @@ const Related = (props) => {
                           <li key={i2}>
                             <div className="wrapper">
                               <a className="thumbnail" href="#">
-                                <img src="../../assets/images/macbook-pro.png" alt={post.title}/>
+                                <img src={globalUrl+post.thumbnail} alt={post.title}/>
                               </a>
                               <h1>
                                 <Link to={`/post/detail/${post.slug}`}>{post.title}</Link>

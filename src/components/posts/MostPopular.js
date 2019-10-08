@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {globalUrl} from '../../actions/config';
 
 const MostPopular = (props) => {
   return(
@@ -16,7 +17,7 @@ const MostPopular = (props) => {
                       <div className="wrapper">
                         <span>{i+1}</span>
                         <Link className="thumbnail" to={`/post/detail/${data.post.slug}`}>
-                          <img src="../../assets/images/redmi-note-7.jpg" alt="Redmi Note 7"/>
+                          <img src={`${globalUrl}${data.post.thumbnail}`} alt={data.post.title}/>
                         </Link>
                         <h1>
                           <Link className="thumbnail" to={`/post/detail/${data.post.slug}`}>
