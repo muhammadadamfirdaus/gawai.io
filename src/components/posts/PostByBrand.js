@@ -14,12 +14,12 @@ const PostByBrand = (props) => {
                 <section className="card flex brand">
                   <div className="wrapper head">
                     <h1>
-                      <Link to={`/product/brand/${data.brand.slug}`}>
+                      <Link to={`/brand/detail/${data.brand.slug}`}>
                         {data.brand.name}
                       </Link>
                     </h1>
                     <h2 className="more">
-                      <Link to={`/product/brand/${data.brand.slug}`}>
+                      <Link to={`/post/brand/${data.brand.slug}`}>
                         Lihat Semua
                       </Link>
                     </h2>
