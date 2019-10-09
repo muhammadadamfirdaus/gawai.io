@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {globalUrl} from '../actions/config';
 
 const Headline = (props) => {
   return(
@@ -15,7 +16,7 @@ const Headline = (props) => {
                         <div className="swiper-slide">
                           <div className="wrapper">
                             <Link to={`/post/detail/${data.post.slug}`} className="thumbnail">
-                              <img src="../assets/images/macbook-pro.png" alt={data.post.title}/>
+                              <img src={`${globalUrl}${data.post.thumbnail}`} alt={data.post.title}/>
                             </Link>
                           </div>
                         </div>
@@ -34,7 +35,7 @@ const Headline = (props) => {
                         <div className="swiper-slide" data-slide={i}>
                           <div className="wrapper">
                             <Link to={`/post/detail/${data.post.slug}`} className="thumbnail">
-                              <img src="../assets/images/macbook-pro.png" alt={data.post.title}/>
+                              <img src={`${globalUrl}${data.post.thumbnail}`} alt={data.post.title}/>
                             </Link>
                             <h1>
                               <Link to={`/post/detail/${data.post.slug}`}>{data.post.title}</Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {globalUrl} from '../../actions/config';
 
 const PostByBrand = (props) => {
   return(
@@ -13,12 +14,12 @@ const PostByBrand = (props) => {
                 <section className="card flex brand">
                   <div className="wrapper head">
                     <h1>
-                      <Link to={`/product/brand/${data.brand.slug}`}>
+                      <Link to={`/brand/detail/${data.brand.slug}`}>
                         {data.brand.name}
                       </Link>
                     </h1>
                     <h2 className="more">
-                      <Link to={`/product/brand/${data.brand.slug}`}>
+                      <Link to={`/post/brand/${data.brand.slug}`}>
                         Lihat Semua
                       </Link>
                     </h2>
@@ -31,7 +32,7 @@ const PostByBrand = (props) => {
                             <li>
                               <div className="wrapper">
                                 <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
-                                  <img src="../../assets/images/redmi-note-7.jpg" alt={data2.title}/>
+                                  <img src={`${globalUrl}${data2.thumbnail}`} alt={data2.title}/>
                                 </Link>
                                 <h1>
                                   <Link className="thumbnail" to={`/post/detail/${data2.slug}`}>
